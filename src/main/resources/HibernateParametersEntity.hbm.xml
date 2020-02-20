@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entities.ParametersEntity" table="Parameters" schema="public">
+        <id name="parameterId">
+            <column name="parameterId" sql-type="integer"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="currentBalance">
+            <column name="currentBalance" sql-type="long"  not-null="true"/>
+        </property>
+
+        <property name="maxWin">
+            <column name="maxWin" sql-type="long"  not-null="true"/>
+        </property>
+
+        <property name="currencyCode">
+            <column name="currencyCode" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+
+        <property name="soundValue">
+            <column name="soundValue" sql-type="double" not-null="true"/>
+        </property>
+
+        <property name="languageCode">
+            <column name="languageCode" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+
+        <property name="currentBet">
+            <column name="currentBet" sql-type="long"  not-null="false"/>
+        </property>
+
+        <property name="currentGame">
+            <column name="currentGame" sql-type="integer"  not-null="false"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entities.PrizeDistributionEntity" table="PrizeDistribution" schema="public">
+        <id name="prizeId">
+            <column name="prizeId" sql-type="integer"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="bet">
+            <column name="bet" sql-type="long"  not-null="true"/>
+        </property>
+
+        <property name="total_tickets">
+            <column name="total_tickets" sql-type="integer"  not-null="true"/>
+        </property>
+
+        <property name="max_prize_hit">
+            <column name="max_prize_hit" sql-type="double" not-null="false"/>
+        </property>
+
+        <property name="any_prize_hit">
+            <column name="any_prize_hit" sql-type="double" not-null="false"/>
+        </property>
+
+        <property name="winning_tickets">
+            <column name="winning_tickets" sql-type="integer" not-null="false"/>
+        </property>
+
+        <property name="max_prize">
+            <column name="max_prize" sql-type="long" not-null="false"/>
+        </property>
+
+        <property name="total_payout">
+            <column name="total_payout" sql-type="long" not-null="false"/>
+        </property>
+
+        <list name="recordEntities" cascade="all">
+            <key column="prizeId"/>
+            <list-index column="idx"/>
+            <one-to-many class="entities.RecordEntity"/>
+        </list>
+
+        <list name="quantum_prizesEntity" cascade="all">
+            <key column="prizeId"/>
+            <list-index column="idx"/>
+            <one-to-many class="entities.QuantumPrizesEntity"/>
+        </list>
+
+        <property name="idx">
+            <column name="idx" sql-type="integer" not-null="true"/>
+        </property>
+
+        <property name="gameId">
+            <column name="gameId" sql-type="integer" not-null="false"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

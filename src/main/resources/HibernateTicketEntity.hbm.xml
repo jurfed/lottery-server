@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entities.TicketEntity" table="Ticket" schema="public">
+        <id name="ticketId">
+            <column name="ticketId" sql-type="integer"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="price">
+            <column name="price" sql-type="long"  not-null="true"/>
+        </property>
+
+        <property name="win">
+            <column name="win" sql-type="long"  not-null="true"/>
+        </property>
+
+        <property name="context">
+            <column name="context" sql-type="varchar(500)" length="500" not-null="false"/>
+        </property>
+
+        <property name="played">
+            <column name="played" sql-type="integer" not-null="true"/>
+        </property>
+
+        <property name="idx">
+            <column name="idx" sql-type="integer" not-null="true"/>
+        </property>
+
+        <property name="gameId">
+            <column name="gameId" sql-type="integer" not-null="false"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

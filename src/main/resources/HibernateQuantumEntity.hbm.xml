@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entities.QuantumPrizesEntity" table="QuantumPrizes" schema="public">
+        <id name="quantumId">
+            <column name="quantumId" sql-type="integer"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="value">
+            <column name="value" sql-type="long"  not-null="true"/>
+        </property>
+
+        <property name="idx">
+            <column name="idx" sql-type="integer" not-null="true"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entities.GameEntity" table="Game" schema="public">
+        <id name="gameId">
+            <column name="gameId" sql-type="integer"/>
+        </id>
+
+        <property name="gameName">
+            <column name="gameName" sql-type="varchar(200)" length="200" not-null="true"/>
+        </property>
+
+        <list name="tickets" cascade="all">
+            <key column="gameId"/>
+            <list-index column="idx"/>
+            <one-to-many class="entities.TicketEntity"/>
+        </list>
+
+        <list name="prizes" cascade="all">
+            <key column="gameId"/>
+            <list-index column = "idx"/>
+            <!--<list-index column="prizeId"/>-->
+            <one-to-many class="entities.PrizeDistributionEntity"/>
+        </list>
+
+    </class>
+</hibernate-mapping>

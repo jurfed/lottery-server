@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgresPlusDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+<!--        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/postgres</property>-->
+<!--        <property name="hibernate.connection.url">jdbc:postgresql://192.168.93.175:5432/postgres</property>-->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
+
+        <mapping resource="HibernateParametersEntity.hbm.xml"/>
+        <mapping resource="HibernateGameEntity.hbm.xml"/>
+        <mapping resource="HibernateTicketEntity.hbm.xml"/>
+        <mapping resource="HibernatePrizeDistributionEntity.hbm.xml"/>
+        <mapping resource="HibernateRecordEntity.hbm.xml"/>
+        <mapping resource="HibernateQuantumEntity.hbm.xml"/>
+
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
